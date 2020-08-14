@@ -6,4 +6,4 @@ class Paddle(pygame.sprite.Sprite):
         pygame.sprite.Sprite.__init__(self)
         self.image = pygame.Surface([10,75])
         self.rect = self.image.get_rect()
-        self.points = 0
+        self.score = 0

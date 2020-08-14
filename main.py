@@ -34,6 +34,26 @@ allSprites.add(leftPaddle, rightPaddle, pong)
 #Displaying the sprites in window
 def redraw():
     window.fill(black)
+
+    #Title Font here
+    font = pygame.font.SysFont('Comic Sans MS', 30)
+    text = font.render('PONG', False, white)
+    textRect = text.get_rect()
+    textRect.center = (750//2, 25)
+    window.blit(text, textRect)
+
+    #Left Paddle Score
+    leftPaddle_score = font.render(str(leftPaddle.score), False, red)
+    leftPaddle_rect = leftPaddle_score.get_rect()
+    leftPaddle_rect.center = (50,50)
+    window.blit(leftPaddle_score, leftPaddle_rect)
+
+    #Right Paddle Score
+    rightPaddle_score = font.render(str(rightPaddle.score), False, green)
+    rightPaddle_rect = rightPaddle_score.get_rect()
+    rightPaddle_rect.center = (700,50)
+    window.blit(rightPaddle_score, rightPaddle_rect)
+
     allSprites.draw(window)
     pygame.display.update()
 
@@ -76,7 +96,10 @@ while run:
 
     #Reverse the direction if ball collides with right boundary
     if pong.rect.x > 740:
+        #Reset the ball position
+        pong.rect.x, pong.rect.y = 375, 250
         pong.dx = -1
+        leftPaddle.score += 1
     
     #Reverse the direction if ball collides with upper boundary
     if pong.rect.y < 0:
@@ -84,7 +107,19 @@ while run:
     
     #Reverse the direction if ball collides with left boundary
     if pong.rect.x < 0:
+        #Reset the ball position
+        pong.rect.x, pong.rect.y = 375, 250
         pong.dx = 1
+        rightPaddle.score += 1
+
+    # Reverse ball direction if it hits left paddle
+    if leftPaddle.rect.colliderect(pong.rect):
+        pong.dx = 1
+
+    # Reverse ball direction if it hits right paddle
+    if rightPaddle.rect.colliderect(pong.rect):
+        pong.dx = -1
+
 
     redraw()
 
