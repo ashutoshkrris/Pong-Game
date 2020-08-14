@@ -6,7 +6,7 @@ This mini project is a part of [Zero to Mastery](https://github.com/zero-to-mast
 
 
 ## Demo
-
+![Pong Game](https://github.com/ashutoshkrris/Pong-Game/blob/master/demo/pong.png)
 
 ## How to Start
 
