@@ -10,7 +10,9 @@ This mini project is a part of [Zero to Mastery](https://github.com/zero-to-mast
 
 ## How to Start
 
-* Clone the project and change the current working directory to the cloned project folder.
+* [Fork the project](https://www.github.com/ashutoshkrris/Pong-Game/fork) and clone the forked project
+
+* Change the current working directory to the cloned project folder.
 
 * Install **pygame** using the pip command :
 
